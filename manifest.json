@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "DLE Timestamp Converter",
+  "version": "1.0",
+  "description": "Converts UK time format to Sri Lanka time on DLE.",
+  "permissions": ["scripting", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://dle.plymouth.ac.uk/*"],
+      "js": ["scripts/content.js"],
+      "css": ["styles/styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "commands": {
+    "toggle_conversion": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Toggle timestamp conversion"
+    }
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}
